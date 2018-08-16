@@ -12,4 +12,4 @@ Code repo for [kevinharper.com](https://kevinharper.com).
 ## Contribute
 This project is a personal project and largely closed to pull requests.
 
-If you do, however, find an error with code, security, or spelling/grammer, please let me know by [creating a new issue](https://github.com/khdc-me/ws-kevinharper/issues)
+If you do, however, find an error with code, security, or spelling/grammar, please let me know by [creating a new issue](https://github.com/khdc-me/ws-kevinharper/issues)

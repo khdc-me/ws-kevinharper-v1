@@ -1,0 +1,18 @@
+FROM python:3.6.6-alpine
+
+RUN pip install pipenv
+
+ENV PYTHONUNBUFFEREN=1 \
+    DJANGO_SETTINGS_MODULE=config.settings.settings_dev
+
+RUN mkdir -p /usr/src/app/ws-kevinharper
+WORKDIR /usr/src/app/ws-kevinharper
+
+COPY Pipfile /usr/src/app/ws-kevinharper
+COPY Pipfile.lock /usr/src/app/ws-kevinharper
+RUN pipenv install --system
+COPY . /usr/src/app/ws-kevinharper
+
+RUN python manage.py collectstatic --no-input
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+

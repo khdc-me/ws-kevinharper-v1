@@ -21,7 +21,7 @@ BASE_DIR = pathlib.Path(__file__).parent.parent.parent
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('env_vars_dev') as f:
+with open('env_vars') as f:
   env_vars = json.loads(f.read())
 
 SECRET_KEY = get_env_var('SECRET_KEY')

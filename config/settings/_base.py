@@ -13,16 +13,27 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 import os
 from pathlib import Path
 
+import json
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = pathlib.Path(__file__).parent.parent.parent
+BASE_DIR = Path(__file__).parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('env_vars') as f:
+with open('env_vars.json') as f:
   env_vars = json.loads(f.read())
+
+
+def get_env_var(var, env_vars=env_vars):
+    try:
+        return env_vars[var]
+    except KeyError:
+        error_msg: var + " is not set."
+        raise ImproperlyConfigured(error_msg)
+
 
 SECRET_KEY = get_env_var('SECRET_KEY')
 
@@ -53,7 +64,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'website.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -71,7 +82,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'website.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -125,10 +136,10 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'website/static')
 
 
-def get_env_var(var, env_vars=env_vars):
-    try:
-        return env_vars[var]
-    except KeyError:
-        error_msg: var + " is not set."
-        raise ImproperlyConfigured(error_msg)
+#def get_env_var(var, env_vars=env_vars):
+#    try:
+#        return env_vars[var]
+#    except KeyError:
+#        error_msg: var + " is not set."
+#        raise ImproperlyConfigured(error_msg)
         

@@ -3,7 +3,7 @@ server {
     charset utf-8;
 
     location /static/ {
-        alias /usr/src/app/www_macstucson_com/website/static/;
+        alias /usr/src/app/ws-kevinharper/website/static/;
     }
 
     location / {

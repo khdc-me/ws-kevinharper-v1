@@ -1,0 +1,38 @@
+version: '3'
+
+networks:
+  proxy:
+    external: true
+  internal:
+    external: false
+
+services:      
+  web:
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile_prod
+    expose:
+      - 8000
+    networks:
+      - internal
+      
+  nginx:
+    restart: always
+    build:
+      context: ./nginx/
+      dockerfile: Dockerfile_prod
+      #volumes:
+      #- ./website/static:/usr/src/app/ws-kevinharper/website/static/
+    labels:
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=Host:www.kevinharper.com, kevinharper.com"
+      - "traefik.docker.network=proxy"
+      - "traefik.port=80"
+      - "traefik.port=443"
+    networks:
+      - internal
+      - proxy
+    depends_on:
+      - web
+

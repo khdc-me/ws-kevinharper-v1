@@ -24,6 +24,12 @@ services:
       dockerfile: Dockerfile_prod
       #volumes:
       #- ./website/static:/usr/src/app/ws-kevinharper/website/static/
+    labels:
+      - "traefik.backend=nginx"
+      - "traefik.frontend.rule=Host:www.kevinharper.com, kevinharper.com"
+      - "traefik.docker.network=proxy"
+      - "traefik.port=80"
+      - "traefik.port=443"
     networks:
       - internal
       - proxy

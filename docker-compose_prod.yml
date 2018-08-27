@@ -22,8 +22,11 @@ services:
     build:
       context: ./nginx/
       dockerfile: Dockerfile_prod
+<<<<<<< HEAD
+=======
       #volumes:
       #- ./website/static:/usr/src/app/ws-kevinharper/website/static/
+>>>>>>> Added Traefik network/proxy information | closes #14
     labels:
       - "traefik.backend=nginx"
       - "traefik.frontend.rule=Host:www.kevinharper.com, kevinharper.com"

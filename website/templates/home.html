@@ -8,6 +8,7 @@
 
     <title>Kevin Harper | Home</title>
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
     <script src="https://use.fontawesome.com/80d69941fb.js"></script>
     <script>
       function displayLast(){
@@ -182,7 +183,7 @@
         color: #8B4513;
       }
 
-      #js-links ul li a:hover .fa-newspaper-o {
+      #js-links ul li a:hover .fa-sitemap {
         color: #050505;
       }
 
@@ -190,7 +191,7 @@
         color: #eee8aa;
       }
 
-      .fa-github, .fa-briefcase, .fa-newspaper-o, .fa-envelope {
+      .fa-github, .fa-briefcase, .fa-sitemap, .fa-envelope {
 		    font-size: 35px;
       }
 
@@ -307,7 +308,7 @@
       <div id="js-links" style="display: none">
         <ul>
           <li><a href="mailto:kevin@kevinharper.com" title="E-mail Me"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-          <li><a href="blog.html" title="Blog: Mostly Personal Notes"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a></li>
+          <li><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles"><i class="fas fa-sitemap"></i></a></li>
           <li><a href="{% url 'experience' %}" title="IT Experience"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
 	  <li><a href="https://github.com/khdc-me" title="GitHub: Some Recent Projects" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
         </ul>
@@ -315,8 +316,8 @@
       <div id="no-js-links">
         <ul>
         <li><a href="https://github.com/khdc-me" title="GitHub: Some Recent Projects" target="_blank">Projects</a></li>
-        <li><a href="experience.html" title="IT Experience">Experience</a></li>
-        <li><a href="blog.html" title="Blog: Mostly Personal Notes">Blog</a></li>
+        <li><a href="{% url 'experience' %}" title="IT Experience">Experience</a></li>
+        <li><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles">Blog</a></li>
           <li><a href="mailto:kevin@kevinharper.com" title="E-mail Me">Contact Me</a></li>
         </ul>
         <script>

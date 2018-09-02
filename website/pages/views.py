@@ -7,3 +7,7 @@ def home(request):
 
 def experience(request):
     return render(request, 'experience.html', {})
+
+
+def my_portal(request):
+    return render(request, 'my-portal.html', {})

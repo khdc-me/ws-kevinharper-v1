@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="robots" content="index, follow">
-    <meta name="description" content="Welcome to my little corner of the web. I'm a systems administrator with a degree in molecular & cellular biology who enjoys writing code above all things.">
+    <meta name="description" content="Welcome to my little corner of the web. I'm a systems administrator with a degree in molecular & cellular biology who enjoys writing code. I work w/ Linux & Windows server during the day and work on open source projects during the night.">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <title>Kevin Harper | Home</title>
@@ -12,29 +12,31 @@
     <script src="https://use.fontawesome.com/80d69941fb.js"></script>
     <script>
       function displayLast(){
-        document.getElementById('i-enjoy').innerHTML = "Lately, I've been developing apps<br>with Python, Django, and Docker."
+        document.getElementById('i-enjoy').style.opacity = 1;
         document.getElementById('job-title').style.opacity = 1;
       }
-      function fadeOut(elem){
+      function fadeOut(elem1, elem2){
         // element is currently visible
         elemOpacity = 1;
 
         function fade() {
           if ((elemOpacity -= .1) > 0) {
-            elem.style.opacity = elemOpacity;
+            elem1.style.opacity = elemOpacity;
+            elem2.style.opacity = elemOpacity;
             setTimeout(fade, 200);
           }
         };
         fade();
       }
 
-      function fadeIn(elem){
+      function fadeIn(elem1, elem2){
         // element is currently not visible
         elemOpacity = 0;
 
         function fade() {
           if ((elemOpacity += .1) < 1) {
-            elem.style.opacity = elemOpacity;
+            elem1.style.opacity = elemOpacity;
+            elem2.style.opacity = elemOpacity;
             setTimeout(fade, 100);
           }
         };
@@ -47,19 +49,22 @@
         jobTitleElem.innerHTML = "";
         iEnjoyElem.innerHTML = "";
 
-        var jobTitleArray = ["<small>Hello. I'm a</small><br>Systems Administrator.", "<small>I deal w/</small><br>Linux & Win Servers.", "<small>I</small><br>love to code."]
+        var jobTitleArray = ["<small>Hello &</small><br>welcome!", "<small>I'm a</small><br>Systems Administrator.", "<small>I</small><br>love to code.", "<small>I'm passionate</small><br>about open source."]
+        var iEnjoyArray = [" ", "10+ yrs experience w/ Linux & Win<br>servers, networking, & support", "Most recently, web-based apps<br>via Python, Django, & Docker", "Regular contributor to<br>open source projects on GitHub"]
         var i = 0;
         jobTitleElem.innerHTML = jobTitleArray[i];
+        iEnjoyElem.innerHTML = iEnjoyArray[i];
 
         var millsToWait = 100;
         var action = 'nof'; // fi = fade in | nof = no fade | fo = fade out
 
         function displayNextTitle() {
           jobTitleElem.innerHTML = jobTitleArray[i];
+          iEnjoyElem.innerHTML = iEnjoyArray[i];
 
           if( action == 'fi' ) {
             action = 'nof';
-            fadeIn(jobTitleElem);
+            fadeIn(jobTitleElem, iEnjoyElem);
             setTimeout(displayNextTitle, 2100);
           } else if ( action == 'nof' ) {
             action = 'fo';
@@ -67,19 +72,19 @@
               millsToWait = 3000;
             } else if (i == 1 ) {
               // word is 'and'
-              millsToWait = 200;
+              millsToWait = 3000;
             } else if ( i == 3) {
               // word is 'turned'
-              millsToWait = 50;
+              millsToWait = 3000;
             } else {
-              millsToWait = 1000;
+              millsToWait = 3000;
             }
             setTimeout(displayNextTitle, millsToWait);
           } else if ( action == 'fo' ) {
             action = 'fi';
             if( i < jobTitleArray.length-1 ) {
               // no need to fade out if last iterations
-              fadeOut(jobTitleElem);
+              fadeOut(jobTitleElem, iEnjoyElem);
               i++;
               setTimeout(displayNextTitle, 2100);
             } else {
@@ -326,8 +331,8 @@
         </script>
       </div>
       <div id="skillset">
-        <h2 id="job-title">Software Developer</h2>
-        <h3 id="i-enjoy">Lately, been developing apps<br>with Python, Django, and Docker.</h3>
+        <h2 id="job-title"><small>I'm a</small><br>Systems Administrator.</h2>
+        <h3 id="i-enjoy">10+ yrs experience w/ Linux & Win<br>servers, networking, & support</h3>
         <script>
           animateSkillset();
         </script>

@@ -11,3 +11,7 @@ def experience(request):
 
 def my_portal(request):
     return render(request, 'my-portal.html', {})
+
+
+def my_projects(request):
+    return render(request, 'my-projects.html', {})

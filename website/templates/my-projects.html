@@ -48,16 +48,25 @@
         font-size: 30px;
       }
       
-      nav {
+      #nav-container {
         display: block;
         float: left;
         width: 100%;
+        
+        border-bottom: 1px solid #cfcfcf;
+      }
+      
+      nav {
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        
+        width: 350px;
       }
       
       nav ul {
         margin-top: 15px;
-        margin-right: auto;
-        margin-left: auto;
+        margin-left: -25px;
         
         width: 348px;
         
@@ -69,33 +78,31 @@
       nav ul li {
         float: right;
         height: 36px;
-        width: 86px;
       }
       
       nav ul li a {
         display: block;
-        color: #cfcfcf;
+        color: #0f0f0f;
+        
+        text-decoration: none;
       }
       
-      nav ul li a:hover .fa-home {
-        color: #000000;
+      #nav-home {
+        text-align: left;
+        width: 60px;
       }
       
-      nav ul li a:hover .fa-briefcase {
-        color: #884513;
+      #nav-experience, #nav-portal {
+        text-align: left;
+        width: 96px;
       }
       
-      nav ul li a:hover .fa-sitemap {
-        color: #050505;
+      #nav-email {
+        text-align: left;
+        width: 60px;
+        
+        margin-right: 25px;
       }
-      
-      nav ul li a:hover .fa-envelope {
-        color: #eee8aa;
-      }
-      
-      .fa-home, .fa-briefcase, .fa-sitemap, .fa-envelope {
-        font-size: 35px;
-      }     
       
       #container {
         margin-right: auto;
@@ -115,13 +122,15 @@
     <header>
       <h1><i class="fa fa-github" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;My Projects</h1>
     </header>
-    <nav>
-      <ul>
-        <li><a href="mailto:kevin@kevinharper.com" title="E-mail Me"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
-        <li><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles"><i class="fas fa-sitemap"></i></a></li>
-        <li><a href="{% url 'experience' %}" title="IT Experience"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
-        <li><a href="{% url 'home' %}" title="Home"><i class="fas fa-home"></i></a></li>
-      </ul>
-    </nav>
+    <div id="nav-container">
+      <nav>
+        <ul>
+          <li id="nav-email"><a href="mailto:kevin@kevinharper.com" title="E-mail Me">E-mail</a></li>
+          <li id="nav-portal"><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles">Bookmarks</a></li>
+          <li id="nav-experience"><a href="{% url 'experience' %}" title="IT Experience">Experience</a></li>
+          <li id="nav-home"><a href="{% url 'home' %}" title="Home">Home</a></li>
+        </ul>
+      </nav>
+    </div>
   </body>
 </html>

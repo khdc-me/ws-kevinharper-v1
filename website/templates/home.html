@@ -315,12 +315,12 @@
           <li><a href="mailto:kevin@kevinharper.com" title="E-mail Me"><i class="fa fa-envelope" aria-hidden="true"></i></a></li>
           <li><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles"><i class="fas fa-sitemap"></i></a></li>
           <li><a href="{% url 'experience' %}" title="IT Experience"><i class="fa fa-briefcase" aria-hidden="true"></i></a></li>
-	  <li><a href="my-projects.html" title="My Personal Projects Repo" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+	      <li><a href="{% url 'my-projects' %}" title="My Personal Projects Repo"><i class="fa fa-github" aria-hidden="true"></i></a></li>
         </ul>
       </div>
       <div id="no-js-links">
         <ul>
-        <li><a href="my-projects.html" title="My Personal Projects Repo" target="_blank">Projects</a></li>
+        <li><a href="{% url 'my-projects' %}" title="My Personal Projects Repo">Projects</a></li>
         <li><a href="{% url 'experience' %}" title="IT Experience">Experience</a></li>
         <li><a href="{% url 'my-portal' %}" title="Links to Resources, Personal Projects, and Personal Articles">Blog</a></li>
           <li><a href="mailto:kevin@kevinharper.com" title="E-mail Me">Contact Me</a></li>

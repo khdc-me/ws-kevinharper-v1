@@ -6,3 +6,5 @@ ALLOWED_HOSTS = [
     '[::1]',
     '.kevinharper.com',
 ]
+
+DEBUG = False
